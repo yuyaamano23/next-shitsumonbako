@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useAuthentication } from "../hooks/authentication";
+import Link from "next/link";
 
 export default function Home() {
 	const { user } = useAuthentication();
@@ -15,6 +16,9 @@ export default function Home() {
 
 			<main className={styles.main}>
 				<p>{user?.uid || "未ログイン"}</p>
+				<Link href="/page2">
+					<a>Go to page2</a>
+				</Link>
 			</main>
 
 			<footer className={styles.footer}>
