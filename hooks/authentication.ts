@@ -12,6 +12,7 @@ export function useAuthentication() {
 	const [user, setUser] = useRecoilState(userState);
 
 	useEffect(() => {
+		console.log("Start useEffect");
 		if (user !== null) {
 			return;
 		}
@@ -26,6 +27,7 @@ export function useAuthentication() {
 
 		firebase.auth().onAuthStateChanged(function (firebaseUser) {
 			if (firebaseUser) {
+				console.log("Set user");
 				setUser({
 					uid: firebaseUser.uid,
 					isAnonymous: firebaseUser.isAnonymous,
