@@ -3,6 +3,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { User } from "../../models/User";
 import firebase from "firebase/app";
 import Layout from "../../components/Layout";
+import { toast } from "react-toastify";
 
 type Query = {
 	uid: string;
@@ -30,8 +31,17 @@ export default function UserShow() {
 
 		setIsSending(false);
 
+		toast.success("質問を送信しました。", {
+			position: "bottom-left",
+			autoClose: 5000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
+
 		setBody("");
-		alert("質問を送信しました。");
 	}
 
 	useEffect(() => {
