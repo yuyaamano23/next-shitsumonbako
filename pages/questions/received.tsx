@@ -22,6 +22,7 @@ export default function QuestionsReceived() {
 				.firestore()
 				.collection("questions")
 				.where("receiverUid", "==", user.uid)
+				.orderBy("createdAt", "desc")
 				.get();
 
 			if (snapshot.empty) {
